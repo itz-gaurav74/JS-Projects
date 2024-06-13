@@ -1,0 +1,142 @@
+
+
+:root{
+    --line-border-fill:#3498db;
+    --line-border-empty:#e0e0e0;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+} 
+
+html{
+    height: 100%;
+    width: 100%;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: lightgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.container{
+    text-align: center;
+    /* border: 1px solid; */
+}
+
+.progress-container{
+    /* width: 40vw; */
+    width: 350px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 7vh;
+}
+
+.progress-container::before{
+    content: "";
+    height: 4px;
+    background-color: var(--line-border-empty);
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    width: 100%;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+.progress{
+    background-color: var(--line-border-fill);
+    height: 4px;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+    width: 50%;
+    z-index: -1;
+    transition: .8s ease;
+    
+}
+
+.circle{
+    height: 30px;
+    width: 30px;
+    border: 4px solid var(--line-border-empty);
+    border-radius: 50%;
+    background-color: var(--line-border-empty);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    cursor: progress;
+    transition: all 1s ease;
+}
+
+.circle.active{
+    border-color: var(--line-border-fill);
+}
+
+.btn{
+    padding: 8px 30px ;
+    margin: 6px;
+    font-size: 14px;
+    user-select: none;
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    position: relative;
+}
+
+.btn:active{
+    transform: scale(.98);
+}
+.btn:disabled{
+    background-color: var(--line-border-empty);
+    color: var(--line-border-fill);
+    cursor: not-allowed;
+}
+
+#iconprev{
+    animation: shakeleft 1s ease-in-out  infinite ;
+    position: absolute;
+    width: 35px;
+}
+
+@keyframes shakeleft {
+    0%{
+        left : 0;
+    }
+    50%{
+        left :6%;
+    }
+    100%{
+        left: 0;
+    }
+}
+
+#iconNext{
+    animation: shakeright 1s ease-in-out  infinite ;
+    position: absolute;
+    width: 35px;
+}
+
+@keyframes shakeright {
+    0%{
+        right : 0;
+    }
+    50%{
+        right :6%;
+    }
+    100%{
+        right: 0;
+    }
+}
