@@ -60,7 +60,7 @@ body{
     top: 50%;
     left: 0%;
     transform: translateY(-50%);
-    width: 50%;
+    width: 0%;
     z-index: -1;
     transition: .8s ease;
     
@@ -94,6 +94,7 @@ body{
     border: none;
     outline: none;
     position: relative;
+    cursor: pointer;
 }
 
 .btn:active{
